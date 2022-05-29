@@ -14,7 +14,7 @@ func main() {
 	client := &http.Client{}
 
 	for _, subreddit := range subreddits {
-		//fmt.Println("\n---- " + subreddit.Name)
+		printSubredditName(subreddit)
 		feed := getFeed(client, "https://www.reddit.com/r/"+subreddit.Name+"/.rss")
 		entries := filterFeedByKeywords(feed.Entries, subreddit.FilterKeywords)
 
@@ -22,4 +22,8 @@ func main() {
 			fmt.Printf("%s\n%s\n\n", entry.Title, entry.Link.Link)
 		}
 	}
+}
+
+func printSubredditName(subreddit Subreddit) {
+	fmt.Println("\n\033[32m" + subreddit.Name + "\033[0m")
 }
