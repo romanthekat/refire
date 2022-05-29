@@ -21,6 +21,7 @@ func main() {
 		for _, entry := range entries {
 			fmt.Printf("%s\n\t%s\n\n", entry.Title, entry.Link.Link)
 		}
+		println()
 	}
 }
 
@@ -32,5 +33,5 @@ func printSubredditName(subreddit Subreddit) {
 	//	colorSuffix = ""
 	//}
 
-	fmt.Printf("\n%s- %s%s\n", colorPrefix, subreddit.Name, colorSuffix)
+	fmt.Printf("%s- %s%s\n", colorPrefix, subreddit.Name, colorSuffix)
 }
