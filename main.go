@@ -8,7 +8,7 @@ import (
 func main() {
 	subreddits := getSubreddits()
 	if len(subreddits) == 0 {
-		fmt.Println("no subreddits configured, add subreddits and filter keywords in ~/.refire.json")
+		fmt.Println("no subreddits configured, add subreddits and filter keywords in '~/.refire.json'")
 	}
 
 	client := &http.Client{}
@@ -19,11 +19,18 @@ func main() {
 		entries := filterFeedByKeywords(feed.Entries, subreddit.FilterKeywords)
 
 		for _, entry := range entries {
-			fmt.Printf("%s\n%s\n\n", entry.Title, entry.Link.Link)
+			fmt.Printf("%s\n\t%s\n\n", entry.Title, entry.Link.Link)
 		}
 	}
 }
 
 func printSubredditName(subreddit Subreddit) {
-	fmt.Println("\n\033[32m- " + subreddit.Name + "\033[0m")
+	colorPrefix := "\u001B[32m" //green
+	colorSuffix := "\033[0m"
+	//if runtime.GOOS == "windows" {
+	//	colorPrefix = ""
+	//	colorSuffix = ""
+	//}
+
+	fmt.Printf("\n%s- %s%s\n", colorPrefix, subreddit.Name, colorSuffix)
 }
