@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"errors"
 	"io/ioutil"
 	"os"
 )
@@ -17,8 +18,13 @@ func getSubreddits() []Subreddit {
 		panic(err)
 	}
 
-	jsonFile, err := os.Open(home + "/.refire.json")
-	if err != nil {
+	path := home + "/.refire.json"
+
+	jsonFile, err := os.Open(path)
+	if errors.Is(err, os.ErrNotExist) {
+		writeDefaultConfig(path)
+		return nil
+	} else if err != nil {
 		panic(err)
 	}
 	defer jsonFile.Close()
@@ -35,4 +41,21 @@ func getSubreddits() []Subreddit {
 	}
 
 	return subreddits
+}
+
+func writeDefaultConfig(path string) {
+	defaultSubreddits := []Subreddit{{
+		Name:           "subreddit_name",
+		FilterKeywords: []string{"a keyword to show entry"},
+	}}
+
+	result, err := json.MarshalIndent(defaultSubreddits, "", "  ")
+	if err != nil {
+		panic(err)
+	}
+
+	err = os.WriteFile(path, result, 0644)
+	if err != nil {
+		panic(err)
+	}
 }
