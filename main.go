@@ -8,7 +8,7 @@ import (
 func main() {
 	subreddits := getSubreddits()
 	if len(subreddits) == 0 {
-		fmt.Println("no subreddits configured, add subreddits and filter keywords in '~/.refire.json'")
+		fmt.Println("no subreddits configured, add subreddits and filter keywords in ~/", ConfigFilename)
 	}
 
 	client := &http.Client{}

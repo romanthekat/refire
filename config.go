@@ -7,6 +7,8 @@ import (
 	"os"
 )
 
+const ConfigFilename = ".refire.json"
+
 type Subreddit struct {
 	Name           string   `json:"name,omitempty"`
 	FilterKeywords []string `json:"filter_keywords"`
@@ -18,7 +20,7 @@ func getSubreddits() []Subreddit {
 		panic(err)
 	}
 
-	path := home + "/.refire.json"
+	path := home + "/" + ConfigFilename
 
 	jsonFile, err := os.Open(path)
 	if errors.Is(err, os.ErrNotExist) {
