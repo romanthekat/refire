@@ -2,7 +2,7 @@
 Simple cli tool for reddit to read filtrated feed.  
 [2022-05-29] filtration is primitive and relies on at least 1 keyword being mentioned.
 
-## how to use
+## usage
 1. configure `~/.refire.json` in the following format:
 ```
 [
@@ -23,5 +23,5 @@ another post - another title
 https://another link
 ```
 
-## how to build
+## install
 `go install "github.com/romanthekat/refire@latest"` 
