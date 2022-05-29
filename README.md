@@ -1,6 +1,6 @@
 # refire
 Simple cli tool for reddit to read filtrated feed.  
-2022-05-29 filtration is primitive and relies on at least 1 keyword being mentioned.
+[2022-05-29] filtration is primitive and relies on at least 1 keyword being mentioned.
 
 ## how to use
 1. configure `~/.refire.json` in the following format:
