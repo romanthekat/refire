@@ -13,8 +13,9 @@ Simple cli tool for reddit to read filtrated feed.
 ]
 ```
 
-2. `refire` in terminal to get a response:
+2. call `refire` in terminal to get a response:
 ```
+>refire
 some title
 https://link
 
