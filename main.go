@@ -25,5 +25,5 @@ func main() {
 }
 
 func printSubredditName(subreddit Subreddit) {
-	fmt.Println("\n\033[32m" + subreddit.Name + "\033[0m")
+	fmt.Println("\n\033[32m- " + subreddit.Name + "\033[0m")
 }
