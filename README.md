@@ -1,5 +1,5 @@
 # refire
-Simple cli tool for reddit to read filtrated feed.
+Simple cli tool for reddit to read filtrated feed.  
 2022-05-29 filtration is primitive and relies on at least 1 keyword being mentioned.
 
 ## how to use
