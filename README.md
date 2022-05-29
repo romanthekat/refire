@@ -18,10 +18,10 @@ Simple cli tool for reddit to read filtrated feed.
 >refire
 - subreddit name
 some title
-https://link
+    https://link
 
 another post - another title
-https://another link
+    https://another link
 ```
 
 ## install
